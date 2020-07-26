@@ -1,0 +1,291 @@
+{ "feelings":
+    [
+      {
+        "feelings": ["Unified", "Wise", "Spiritual", "Cleansed",	"Aware", "Miraculous", "Bliss", "Empathy", "Consciousness"],
+        "chakra": "Crown",
+        "frequency": 60.19,
+        "shift_to": "Aware, Open Minded, Spiritual",
+        "shift_from": "Cynical, Materialistic, Confused",
+        "frequency_range": "Solfeggio 963 Hz – Gamma 60.19 Hz",
+        "title": "Oneness",
+        "1a": "B",
+        "1b": "the confusion you may have in regards to spirituality through energy that resonates with the open-mindedness of oneness with all people and all things",
+        "1c": "alienation and greediness",
+        "color": "purple",
+        "logo": "../img/Purple.png"
+      },
+      {
+        "feelings": ["Intuitive", "Imaginative", "Tranquil", "Secure", "Integrity", "Peace", "Composure", "Perceptive", "Insightful"],
+        "chakra": "3rd eye",
+        "frequency": 53.25,
+        "shift_to": "Perceptive, Insightful, Imaginative",
+        "shift_from": "Forgetful, Closed Minded, Distracted",
+        "frequency_range": "Solfeggio 852 Hz – Gamma 53.25 Hz",
+        "title": "Intuitive",
+        "1a": "A",
+        "1b": "confusion and moodiness that results from conflicting information with energy that guides you to finding your own answers",
+        "1c": "distrust",
+        "color": "blue",
+        "logo": "../img/Blue.png"
+      },
+      {
+        "feelings": ["Articulate", "Expressive", "Artistic", "Truthful", "Protection", "Sophistication", "Purpose", "Of Service", "Open"],
+        "chakra": "Throat",
+        "frequency": 46.31,
+        "shift_to": "Communicative, Artistic, Truthful",
+        "shift_from": "Not Myself, Out of Control, Interruptive",
+        "frequency_range": "Solfeggio 741 Hz – Gamma 46.31 Hz",
+        "title": "Resolved",
+        "1a": "G",
+        "1b": "body toxicity and environmental hazards with energies that influence healthy eating and promote pure living through clear communication",
+        "1c": "instability and powerlessness",
+        "color": "turquoise",
+        "logo": "../img/Turquoise.png"
+
+      },
+      {
+        "feelings": ["Compassionate", "Trusting", "Hopeful", "Positive", "Loving", "Connection", "Healthy", "Sincere"],
+        "chakra": "Heart",
+        "frequency": 39.94,
+        "shift_to": "Empathic, Compassionate, Balanced, Forgiving",
+        "shift_from": "Anti-Social, Critical, Jealous, Demanding",
+        "frequency_range": "Solfeggio 639 Hz – Gamma 39.94 Hz",
+        "title": "Harmonious",
+        "1a": "F",
+        "1b": "relationship problems with people, or even the environment with energy that promotes understanding",
+        "1c": "anger, bitterness, and even abandonment",
+        "color": "green",
+        "logo": "../img/Green.png"
+
+      },
+      {
+        "feelings": ["Empowered", "Determined", "Energetic", "Charismatic", "Confident", "Humorous", "Intellectual", "Protection", "Comfortable", "Balance"],
+        "chakra": "Solar plexus",
+        "frequency": 33,
+        "shift_to": "Confident, Disciplined, Peaceful",
+        "shift_from": "Insecure, Lethargic, Aggressive",
+        "frequency_range": "Solfeggio 528 Hz – Gamma 33 Hz",
+        "title": "Miraculous",
+        "1a": "E",
+        "1b": "issues related to ego and independence with energy that promotes self- and social-confidence",
+        "1c": "depression, insecurity, and even addictions",
+        "color": "gold",
+        "logo": "../img/Gold.png"
+
+      },
+      {
+        "feelings": ["Courageous", "Graceful", "Friendly", "Successful", "Creative", "Joy", "Emotions", "Adaptable", "Sensual", "Intimate"],
+        "chakra": "Sacral",
+        "frequency": 52.13,
+        "shift_to": "Independent, Sensual, Adaptable",
+        "shift_from": "Rigid, Intimacy Issues, Sensitive",
+        "frequency_range": "Solfeggio 417 Hz – Gamma 52.13 Hz",
+        "title": "Cleansed",
+        "1a": "D",
+        "1b": "destructive influences of past traumas with energy that inspires change",
+        "1c": "shame and possessiveness",
+        "color": "orange",
+        "logo": "../img/Orange.png"
+
+      },
+      {
+        "feelings": ["Sexual", "Passion", "Healthy", "Power", "Stable",	"Energized", "Grounded", "Patient", "Instinctive", "Secure"],
+        "chakra": "Root",
+        "frequency": 49.5,
+        "shift_to": "Stable, Comfortable, Patient, Joyful",
+        "shift_from": "Anxiety, Grief, Guilt, Fear",
+        "frequency_range": "Solfeggio 396 Hz – Gamma 49.5 Hz",
+        "title": "Liberation",
+        "1a": "C",
+        "1b": "subconscious blockages, negative beliefs, and ideas that have lead to your current situations through the release of guilt",
+        "1c": "grief, fear, and guilt",
+        "color": "red",
+        "logo": "../img/Red.png"
+
+      }
+    ],
+    "boosts":
+    [
+      {
+        "id": 10,
+        "name": "Vitality",
+        "color": "0xD83068",
+        "logo": "red",
+        "is_chakra": "true",
+        "frequency": "Solfeggio 396 Hz",
+        "shift_from": "Anxiety, Grief, Guilt, Fear",
+        "shift_to": "Stable, Comfortable, Patient, Joyful",
+        "3a": "vitality",
+        "3c": "root"
+      },
+      {
+        "id": 9,
+        "name": "Creativity",
+        "color": "0xEF8D6D",
+        "logo": "orange",
+        "is_chakra": "true",
+        "frequency": "Solfeggio 417 Hz",
+        "shift_from": "Rigid, Intimacy Issues, Sensitive",
+        "shift_to": "Independent, Sensual, Adaptable",
+        "3a": "creativity",
+        "3c": "sacral"
+      },
+      {
+        "id": 7,
+        "name": "Will Power",
+        "color": "0xDDD033",
+        "logo": "yellow",
+        "is_chakra": "true",
+        "frequency": "Solfeggio 528 Hz",
+        "shift_from": "Insecure, Lethargic, Aggressive",
+        "shift_to": "Confident, Disciplined, Peaceful",
+        "3a": "will power",
+        "3c": "solar plexus"
+      },
+      {
+        "id": 5,
+        "name": "Love",
+        "color": "0x81C816",
+        "logo": "light_green",
+        "is_chakra": "true",
+        "frequency": "Solfeggio 639 Hz",
+        "shift_from": "Anti-Social, Critical, Jealous, Demanding",
+        "shift_to": "Empathic, Compassionate, Balanced, Forgiving",
+        "3a": "love",
+        "3c": "heart"
+      },
+      {
+        "id": 2,
+        "name": "Self Expression",
+        "color": "0x06A1D4",
+        "logo": "light_blue",
+        "is_chakra": "true",
+        "frequency": "Solfeggio 741 Hz",
+        "shift_from": "Not Myself, Out of Control, Interruptive",
+        "shift_to": "Communicative, Artistic, Truthful",
+        "3a": "self-expression",
+        "3c": "throat"
+      },
+      {
+        "id": 1,
+        "name": "Focus",
+        "color": "0x1D5EE4",
+        "logo": "blue",
+        "is_chakra": "true",
+        "frequency": "Solfeggio 852 Hz",
+        "shift_from": "Forgetful, Closed Minded, Distracted",
+        "shift_to": "Perceptive, Insightful, Imaginative",
+        "3a": "focus",
+        "3c": "3rd eye"
+      },
+      {
+        "id": 0,
+        "name": "Consciousness",
+        "color": "0xF355E2",
+        "logo": "pink",
+        "is_chakra": "true",
+        "frequency": "Solfeggio 963 Hz",
+        "shift_from": "Cynical, Materialistic, Confused",
+        "shift_to": "Aware, Open Minded, Spiritual",
+        "3a": "consciousness",
+        "3c": "crown"
+      },
+      {
+        "id": 3,
+        "name": "Pain Relief",
+        "color": "0x06D4A1",
+        "logo": "green",
+        "is_chakra": "false",
+        "frequency": "Solfeggio 174 Hz",
+        "shift_from": "Physical Pain",
+        "shift_to": "Pain Reduction",
+        "3a": "pain relief",
+        "3c": "natural"
+      },
+      {
+        "id": 4,
+        "name": "Cure All",
+        "color": "0x1E831F",
+        "logo": "dark_green",
+        "is_chakra": "false",
+        "frequency": "Schumann 20 Hz",
+        "shift_from": "Illness",
+        "shift_to": "Wellness",
+        "3a": "healing",
+        "3c": "Schumann Resonance"
+      },
+      {
+        "id": 6,
+        "name": "Vigor",
+        "color": "0xC1C816",
+        "logo": "yellow_green",
+        "is_chakra": "false",
+        "frequency": "Solfeggio 285 Hz",
+        "shift_from": "Fatigued",
+        "shift_to": "Renewed",
+        "3a": "vigor",
+        "3c": "natural"
+      },
+      {
+        "id": 8,
+        "name": "Rejuvenation",
+        "color": "0xCEA923",
+        "logo": "gold",
+        "is_chakra": "false",
+        "frequency": "Schumann 7.83 Hz",
+        "shift_from": "Chronic Ailments",
+        "shift_to": "Cellular Rehabilitation",
+        "3a": "recovery",
+        "3c": "Schumann Resonance"
+      }
+    ],
+    "activities": [
+      {
+        "name": "Self Motivate",
+        "frequencies": [30.09, 26.63, 23.16, 21.75, 20.00, 19.97, 17.81, 16.50, 15.66, 26.06, 24.75],
+        "color": "192847",
+        "2a": "Beta",
+        "2b": "30 and 14 Hz",
+        "2c": "concentrate, remain alert, or feel aroused, assisting with problem solving",
+        "3d": "driven"
+      },
+      {
+        "name": "Improve My Mood",
+        "frequencies": [15.05, 13.31, 11.58, 10.88, 10.00, 9.98, 8.91, 8.25, 7.83, 13.03, 12.38],
+        "color": "192847",
+        "2a": "Alpha",
+        "2b": "14 and 8 Hz",
+        "2c": "experience light meditation or daydreaming, assisting with mood modification",
+        "3d": "creative"
+      },
+      {
+        "name": "Meditate",
+        "frequencies": [7.52, 6.66, 5.79, 5.44, 5.00, 4.99, 4.45, 4.13, 3.92, 6.52, 6.19],
+        "color": "192847",
+        "2a": "Theta 2",
+        "2b": "8 and 5 Hz",
+        "2c": "experience deep meditation or relaxation, enabling assistance with conscious behaviors",
+        "3d": "peaceful"
+      },
+      {
+        "name": "Relax",
+        "frequencies": [3.76, 3.33, 2.89, 2.72, 2.50, 2.50, 2.23, 2.06, 1.96, 3.26, 3.09],
+        "color": "192847",
+        "2a": "Theta 1",
+        "2b": "5 and 3 Hz",
+        "2c": "experience REM sleep, assisting with healing",
+        "3d": "universal"
+      },
+      {
+        "name": "Sleep",
+        "frequencies": [1.88, 1.66, 1.45, 1.36, 1.25, 1.25, 1.11, 1.03, 0.98, 1.63, 1.55],
+        "color": "192847",
+        "2a": "Delta",
+        "2b": "3 and 0 Hz",
+        "2c": "experience deep dreamless sleep or participate in transcendental meditation, enabling pain relief",
+        "3d": "subconscious"
+      }
+    ]
+  
+  }
+  

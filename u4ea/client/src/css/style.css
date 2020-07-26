@@ -1,0 +1,428 @@
+.body {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+h1 {
+    margin:0 ;
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1.5)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.85)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1.5)
+    }
+}
+
+.navbar {
+    max-height: 15vh;
+}
+
+.waveWrapperInner {
+    width: 200%;
+    overflow: hidden;
+    max-height: 10vh;
+    background-image: rgb(103, 146, 97);
+    margin-left: -4vw;
+}
+
+.bgMiddle {
+    z-index: 10;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    max-height: 2vh;
+    color: rgb(103, 146, 97);
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+    filter: invert(55%) sepia(22%) saturate(624%) hue-rotate(66deg) brightness(92%) contrast(89%);
+}
+
+.waveMiddle {
+    background-size: 50% 20px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+
+.div1 {
+    height: 27vh;
+    background-color: rgb(146, 151, 144);
+    color: white;
+    padding-left: 4vw;
+    position: relative;
+}
+.div2 {
+    height: 27vh;
+    background-color: rgb(103, 146, 97);
+    color: white;
+    padding-left: 4vw;
+
+}
+.div3 {
+    height: 27vh;
+    background-color: rgb(75, 141, 49);    
+    color: white;
+    padding-left: 4vw;
+
+}
+
+.my-modal {
+    min-width: 50vw;
+}
+
+.text {
+    padding: 5vh;
+    font-size: 3em;
+}
+
+.selectText {
+    color: rgb(233, 230, 230);
+}
+
+
+.selector {
+    color: black;
+}
+
+
+.footer {
+    height: 10vh;
+}
+
+.badge {
+    margin: 1vw;
+}
+
+.btn {
+  text-transform: uppercase;
+  font-weight: bold; 
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  border-radius: 20px;
+  -moz-transition: background .5s linear;
+  -webkit-transition: background .5s linear;
+  transition: background .5s linear;
+  margin-right: 7px; 
+  margin-top: 4px;
+}
+
+
+.default1 {
+  background-color: transparent;
+  color: #000;
+  border-color: #000;
+  border-width:1px;
+  padding-left:10px; 
+  padding-right:10px;
+}
+
+.default1:hover{
+  color:#fff;
+  background-color:#000;
+  border-color:none;
+}
+
+.feelingContainer {
+    margin-bottom: 3vh;
+}
+
+.chakra {
+    width: 4vw;
+    height: 4vh;
+    margin-bottom: 3vh;
+}
+
+@media only screen and (max-width: 600px) {
+    .feelingContainer {
+      background-color: 5vh;
+    }
+
+    .chakra {
+        width: auto;
+        height: 4vh;
+        margin-bottom: 4vh;
+        opacity: 10%;
+    }
+  }
+
+.chakra img {
+    width: 100%;
+    height: auto;
+}
+
+.frequencyText {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.details {
+    font-size: 2em;
+}
+
+.purple {
+    color: rgb(109, 64, 164);
+}
+
+button.purple {
+    background-color: transparent;
+    color: rgb(109, 64, 164);
+    border-color: rgb(109, 64, 164) !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.purple:hover {
+    color:#fff !important;
+    background-color:rgb(109, 64, 164) !important;
+}
+
+.light_blue {
+    color: #06A1D4;
+}
+
+button.light_blue {
+    background-color: transparent;
+    color: #06A1D4;
+    border-color: #06A1D4 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.light_blue:hover {
+    color:#fff;
+    background-color:#06A1D4;
+}
+
+.blue {
+    color: #1D5EE4;
+}
+
+button.blue {
+    background-color: transparent;
+    color: #1D5EE4;
+    border-color: #1D5EE4 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.blue:hover {
+    color:#fff;
+    background-color:#1D5EE4;
+}
+
+.turquoise {
+    color: rgb(62, 205, 190);
+}
+
+button.turquoise {
+    background-color: transparent;
+    color: rgb(62, 205, 190);
+    border-color: rgb(62, 205, 190) !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.turquoise:hover {
+    color:#fff;
+    background-color:rgb(62, 205, 190);
+}
+
+.light_green {
+    color: #81C816;
+}
+
+button.light_green {
+    background-color: transparent;
+    color: #81C816;
+    border-color: #81C816 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.light_green:hover {
+    color:#fff;
+    background-color:#81C816;
+}
+
+.green {
+    color: #06D4A1;
+}
+
+button.green {
+    background-color: transparent;
+    color: #06D4A1;
+    border-color: #06D4A1 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.green:hover {
+    color:#fff;
+    background-color:#06D4A1;
+}
+
+.dark_green {
+    color: #1E831F;
+}
+
+button.dark_green {
+    background-color: transparent;
+    color: #1E831F;
+    border-color: #1E831F !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.dark_green:hover {
+    color:#fff;
+    background-color:#1E831F;
+}
+
+.yellow_green {
+    color: #C1C816;
+
+}
+
+button.yellow_green {
+    background-color: transparent;
+    color: #C1C816;
+    border-color: #C1C816 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.yellow_green:hover {
+    color:#fff;
+    background-color:#C1C816;
+}
+
+.yellow {
+    color: #DDD033
+}
+
+button.yellow {
+    background-color: transparent;
+    color: #DDD033;
+    border-color: #DDD033 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.yellow:hover {
+    color:#fff;
+    background-color:#DDD033;
+}
+
+.gold {
+    color: #CEA923
+}
+
+button.gold {
+    background-color: transparent;
+    color: #CEA923;
+    border-color: #CEA923 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.gold:hover {
+    color:#fff;
+    background-color:#CEA923;
+}
+
+.orange {
+    color: #EF8D6D;
+}
+
+button.orange {
+    background-color: transparent;
+    color: #EF8D6D;
+    border-color: #EF8D6D !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.orange:hover {
+    color:#fff;
+    background-color:#EF8D6D;
+}
+
+.red {
+    color: #D83068;
+}
+
+button.red {
+    background-color: transparent;
+    color: #D83068;
+    border-color: #D83068 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.red:hover {
+    color:#fff;
+    background-color:#D83068;
+}
+
+.pink {
+    color: #F355E2;
+}
+
+button.pink {
+    background-color: transparent;
+    color: #F355E2;
+    border-color: #F355E2 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+}
+
+button.pink:hover {
+    color:#fff;
+    background-color:#F355E2;
+}
+
+.activity {
+    background-color: transparent;
+    color: #192847;
+    border-color: #192847 !important;
+    padding-left:40px; 
+    padding-right:40px; 
+  }
+
+  .activity:hover{
+    color:#fff;
+    background-color:#192847;
+  }
+
+.play-bar {
+    height: auto;
+    width: 100%;
+}
+
+  .btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    margin: 10px auto;
+    margin-left: 45vw;
+}
+
+.glyphicon {
+    padding: 2px;
+    font-size: large;
+}

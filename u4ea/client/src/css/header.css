@@ -1,0 +1,15 @@
+.navbar {
+    margin-bottom: 0;
+}
+
+.downloadLink {
+    float: right;
+}
+
+.nav-title {
+    margin-top: 3vh;
+}
+
+.navbar-brand {
+    font-size: large;
+}
