@@ -18,12 +18,19 @@
   },
   "homepage": "https://github.com/19sodak/U4Ea#readme",
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "redux-devtools-extension": "^2.13.8"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "dotenv": "^8.2.0",
-    "react-bootstrap": "^1.3.0"
+    "is-empty": "^1.2.0",
+    "react-bootstrap": "^1.3.0",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   }
 }
