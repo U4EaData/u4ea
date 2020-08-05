@@ -7,6 +7,13 @@ h1 {
     margin:0 ;
 }
 
+.center {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    margin-top: 30vh;
+}
+
 @keyframes move_wave {
     0% {
         transform: translateX(0) translateZ(0) scaleY(1.5)
