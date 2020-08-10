@@ -1,4 +1,7 @@
+/* Binaural Beat object */
 export var BinauralBeat = (function () {
+
+    /* Wavetype */
     BinauralBeat.SINE = 'sine';
 
     BinauralBeat.SQUARE = 'square';
@@ -7,6 +10,7 @@ export var BinauralBeat = (function () {
 
     BinauralBeat.TRIANGLE = 'triangle';
 
+    /* Set parameters */
     function BinauralBeat(ctx, options) {
         var _ref, _ref1, _ref2, _ref3;
         this.input = ctx.createGain();
@@ -23,6 +27,7 @@ export var BinauralBeat = (function () {
         this.setWaveType(this.waveType);
     }
 
+    /* Connect player to left and right audio channels */
     BinauralBeat.prototype._createInternalNodes = function (ctx) {
         this.leftChannel = ctx.createOscillator();
         this.rightChannel = ctx.createOscillator();
@@ -30,6 +35,7 @@ export var BinauralBeat = (function () {
         return this.compressor = ctx.createDynamicsCompressor();
     };
 
+    /* Compress nodes */
     BinauralBeat.prototype._routeNodes = function () {
         if (this.compressNodes) {
             this.input.connect(this.compressor);
@@ -41,21 +47,25 @@ export var BinauralBeat = (function () {
         }
     };
 
+    /* Start Oscillators */
     BinauralBeat.prototype._startOscillators = function () {
         this.leftChannel.start(0);
         return this.rightChannel.start(0);
     };
 
+    /* Connect Oscillators */
     BinauralBeat.prototype._connectOscillators = function () {
         this.leftChannel.connect(this.channelMerger, 0, 0);
         return this.rightChannel.connect(this.channelMerger, 0, 1);
     };
 
+    /* Disconnect Oscillators */
     BinauralBeat.prototype._disconnectOscillators = function () {
         this.leftChannel.disconnect();
         return this.rightChannel.disconnect();
     };
 
+    /* Calculate Frequency */
     BinauralBeat.prototype._getChannelFrequency = function (channelNum) {
         var channelFrequency, frequencyOffset;
         frequencyOffset = this.beatRate / 2;
@@ -67,6 +77,7 @@ export var BinauralBeat = (function () {
         return channelFrequency;
     };
 
+    /* Get Channel */
     BinauralBeat.prototype.getChannel = function (channel) {
         if (channel === 0) {
             return this.leftChannel;
@@ -75,27 +86,32 @@ export var BinauralBeat = (function () {
         }
     };
 
+    /* Set Pitch  */
     BinauralBeat.prototype.setPitch = function (pitchFreq) {
         this.pitch = pitchFreq;
         this.leftChannel.frequency.value = this._getChannelFrequency(0);
         return this.rightChannel.frequency.value = this._getChannelFrequency(1);
     };
 
+    /* Set Beat Rate */
     BinauralBeat.prototype.setBeatRate = function (beatRate) {
         this.beatRate = beatRate;
         return this.setPitch(this.pitch);
     };
 
+    /* Set Wave Type (Sine wave) */
     BinauralBeat.prototype.setWaveType = function (waveType) {
         this.waveType = waveType;
         return this.leftChannel.type = this.rightChannel.type = this.waveType;
     };
 
+    /* Set periodic wave */
     BinauralBeat.prototype.setPeriodicWave = function (periodicWave) {
         this.leftChannel.setPeriodicWave(periodicWave);
         return this.rightChannel.setPeriodicWave(periodicWave);
     };
 
+    /* Start the oscillators */
     BinauralBeat.prototype.start = function () {
         if (!this.started) {
             this._startOscillators();
@@ -104,14 +120,17 @@ export var BinauralBeat = (function () {
         return this._connectOscillators();
     };
 
+    /* Stop the oscillators */
     BinauralBeat.prototype.stop = function () {
         return this._disconnectOscillators();
     };
 
+    /* Connnect to output */
     BinauralBeat.prototype.connect = function (dest) {
         return this.output.connect(dest.input ? dest.input : dest);
     };
 
+    /* Disconnect from output */
     BinauralBeat.prototype.disconnect = function () {
         return this.output.disconnect();
     };

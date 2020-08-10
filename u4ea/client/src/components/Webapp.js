@@ -8,6 +8,12 @@ import { Modal } from 'react-bootstrap';
 
 import { BinauralBeat } from '../js/beats'
 
+/* 
+    Front end interface for the simple webapp. Uses functions from beats.js n the js folder for 
+    binaural beat creation.
+*/
+
+/* Local Audio Player */
 var context = new AudioContext()
 var bBeat = new BinauralBeat(context);
 var volume = context.createGain();
@@ -35,6 +41,7 @@ class Webapp extends Component {
         }
     }
 
+    /* Get Data for feelings, boosts, activities on load */
     componentWillMount() {
         this.setState({
             feelings: data.feelings,
@@ -44,6 +51,7 @@ class Webapp extends Component {
 
     }
 
+    /* Change feeling state on Click */
     setFeeling(name, f) {
         bBeat.stop();
         this.feelingClose();
@@ -56,6 +64,7 @@ class Webapp extends Component {
         }
     }
 
+    /* Set boost state on Click */
     setBoost(name, f) {
         bBeat.stop();
         this.boostClose();
@@ -68,6 +77,7 @@ class Webapp extends Component {
         }
     }
 
+    /* Set activity state on Click */
     setActivity(name, f) {
         bBeat.stop();
         this.activityClose();
@@ -80,15 +90,15 @@ class Webapp extends Component {
         }
     }
 
+    /* Pause the binaural beat */
     handlePause = e => {
         this.setState({
             playing: false,
         })
         bBeat.stop();
-
-
     }
 
+    /* Play the binaural beat based on selected feeling, boost, and activity */
     handlePlay = e => {
         this.setState({
             playing: true
@@ -105,36 +115,42 @@ class Webapp extends Component {
         bBeat.start()
     }
 
+    /* Open feeling selection modal */
     feelingOpen = e => {
         this.setState({
             isfeelingOpen: true
         })
     }
 
+    /* Close feeling selection modal */
     feelingClose = e => {
         this.setState({
             isfeelingOpen: false
         })
     }
 
+    /* Open boost selection modal */
     boostOpen = e => {
         this.setState({
             isboostOpen: true
         })
     }
 
+    /* Close boost selection modal */
     boostClose = e => {
         this.setState({
             isboostOpen: false
         })
     }
 
+    /* Open activity selection modal */
     activityOpen = e => {
         this.setState({
             isactivityOpen: true
         })
     }
 
+    /* Close activity selection modal */
     activityClose = e => {
         this.setState({
             isactivityOpen: false
@@ -142,6 +158,7 @@ class Webapp extends Component {
     }
 
     render() {
+        /* Render feelings visuals from data.json */
         const feelings = this.state.feelings.map((item, key) =>
             <div key={item.name} className="feelingContainer">
                 <div className="chakra">
@@ -160,6 +177,7 @@ class Webapp extends Component {
                     </div>
                     <div>
                     </div>
+                    {/* Render buttons */}
                     {item.feelings.map((feeling, key) => (
                         <button key={feeling} value={feeling} className={`btn btn-success ${item.color}`} onClick={e => this.setFeeling(e.target.value, item.frequency)}>
                             {feeling}
@@ -169,6 +187,7 @@ class Webapp extends Component {
             </div>
         );
 
+        /* Render boosts visuals from data.json */
         const boost = this.state.boosts.map((item, key) =>
             <div key={item.id} className="feelingContainer">
                 <div className="chakra">
@@ -184,6 +203,7 @@ class Webapp extends Component {
                         <p> {item.shift_to} </p>
                     </div>
                 </div>
+                {/* Render Buttons */}
                 <button key={item.name} value={item.name} className={`btn btn-success ${item.logo}`} onClick={e => this.setBoost(e.target.value, item.id)}>
                     {item.name}
                 </button>
@@ -191,16 +211,20 @@ class Webapp extends Component {
             </div>
         )
 
+        /* Render activities from data.json */
         const activity = this.state.activities.map((item, key) =>
+        /* Render buttons */
             <button key={item.name} value={item.name} className={'btn btn-success activity'} onClick={e => this.setActivity(e.target.value, item.frequencies)}>
                 {item.name}
             </button>
         );
 
+        /* isPlalyable */
         const playable = ((this.state.feeling !== "") &&
             (this.state.boost !== "") &&
             (this.state.activity !== ""))
 
+        /* Disable/enable play button based on isPlayable */
         let player;
         if (playable) {
             if (this.state.playing) {
