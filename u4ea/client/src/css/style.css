@@ -13,57 +13,16 @@ h1 {
     margin: auto;
     width: 50%;
     text-align: center;
-    margin-top: 30vh;
 }
 
-/* -------------------- */
-
-@keyframes move_wave {
-    0% {
-        transform: translateX(0) translateZ(0) scaleY(1.5)
-    }
-    50% {
-        transform: translateX(-25%) translateZ(0) scaleY(0.85)
-    }
-    100% {
-        transform: translateX(-50%) translateZ(0) scaleY(1.5)
-    }
+.nav {
+    margin-top: 2vh;
 }
+
+/* -------- Webapp ------------ */
 
 .navbar {
     max-height: 15vh;
-}
-
-.waveWrapperInner {
-    width: 200%;
-    overflow: hidden;
-    max-height: 10vh;
-    background-image: rgb(103, 146, 97);
-    margin-left: -4vw;
-}
-
-.bgMiddle {
-    z-index: 10;
-}
-
-.wave {
-    position: absolute;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    max-height: 2vh;
-    color: rgb(103, 146, 97);
-    background-repeat: repeat no-repeat;
-    background-position: 0 bottom;
-    transform-origin: center bottom;
-    filter: invert(55%) sepia(22%) saturate(624%) hue-rotate(66deg) brightness(92%) contrast(89%);
-}
-
-.waveMiddle {
-    background-size: 50% 20px;
-}
-.waveAnimation .waveMiddle {
-    animation: move_wave 10s linear infinite;
 }
 
 .div1 {
@@ -422,18 +381,90 @@ button.pink:hover {
 }
 
   .btn-circle {
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    height: 7vh;
     padding: 6px 0px;
     border-radius: 15px;
     text-align: center;
     font-size: 12px;
     line-height: 1.42857;
-    margin: 10px auto;
-    margin-left: 45vw;
+    margin:  auto;
 }
 
 .glyphicon {
     padding: 2px;
     font-size: large;
+}
+
+/* -------- Landing Page ---------- */
+
+div.welcomeMessage {
+    font-size: 2em;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+img.logo {
+    display: block;
+    max-width: 20vw;
+    width: 50%;
+    height: auto;
+    margin: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+a.links {
+    font-size: 2em;
+}
+
+.fade-in {
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+
+/* ------ Login Page ------ */
+
+button.login-button {
+    margin: 2vw;
+}
+
+div.text-input {
+    margin-top: 5vh;
+}
+
+div.login-message {
+    font-size: 3em;
+    margin-top: 10vh;
 }

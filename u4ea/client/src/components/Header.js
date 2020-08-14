@@ -13,7 +13,7 @@ class Header extends Component {
                         </a>
                     </li>
                 </ul>
-                <div>
+                <div className="title">
                     <h1>
                     U4Ea Web App
 

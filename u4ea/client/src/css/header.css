@@ -13,3 +13,8 @@
 .navbar-brand {
     font-size: large;
 }
+
+title {
+    width: 100%;
+    text-align: center;
+}

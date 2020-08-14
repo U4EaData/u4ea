@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../redux/actions/authActions";
 import classnames from "classnames";
-
-import Header from "./Header.js"
-
+import "../css/style.css"
 
 class Register extends Component {
     constructor() {
@@ -54,73 +52,90 @@ class Register extends Component {
     render() {
         const { errors } = this.state;
         return (
-            <div>
-                <Header />
-                <form
-                    noValidate
-                    onSubmit={this.onSubmit}
-                    className="register-body"
-                >
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <span className="red-text">{errors.name}</span>
-                        <input
-                            onChange={this.onChange}
-                            value={this.state.name}
-                            error={errors.name}
-                            id="name"
-                            type="text"
-                            className={classnames("", {
-                                invalid: errors.name,
-                            })}
-                        />
+            <div className="center">
+                <div className="login-message fade-in">
+                    Sign up for U4Ea
+                </div>
+                <form noValidate onSubmit={this.onSubmit}>
+                    <div className="text-input">
+                        <div className="input-group mb-3">
+                            <span className="red-text">{errors.name}</span>
+                            <input
+                                type="text"
+                                onChange={this.onChange}
+                                value={this.state.name}
+                                error={errors.name}
+                                id="name"
+                                placeholder="name"
+                                className={classnames("form-control", {
+                                    invalid: errors.name,
+                                })
+                                }
+                                aria-label="name"
+                                aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div className="text-input">
+                        <div className="input-group mb-3">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" id="basic-addon1">@</span>
+                            </div>
+                            <span className="red-text">{errors.email}</span>
+                            <input
+                                type="text"
+                                onChange={this.onChange}
+                                value={this.state.email}
+                                error={errors.email}
+                                id="email"
+                                placeholder="email"
+                                className={classnames("form-control", {
+                                    invalid: errors.email,
+                                })
+                                }
+                                aria-label="email"
+                                aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div className="text-input">
+                        <div className="input-group mb-3">
+                            <span className="red-text">{errors.password}</span>
+                            <input
+                                type="text"
+                                onChange={this.onChange}
+                                value={this.state.password}
+                                error={errors.password}
+                                id="password"
+                                placeholder="password"
+                                className={classnames("form-control", {
+                                    invalid: errors.password,
+                                })
+                                }
+                                aria-label="password"
+                                aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div className="text-input">
+                        <div className="input-group mb-3">
+                            <span className="red-text">{errors.password2}</span>
+                            <input
+                                type="text"
+                                onChange={this.onChange}
+                                value={this.state.password2}
+                                error={errors.password2}
+                                id="password2"
+                                placeholder="password2"
+                                className={classnames("form-control", {
+                                    invalid: errors.password2,
+                                })
+                                }
+                                aria-label="password2"
+                                aria-describedby="basic-addon1" />
+                        </div>
                     </div>
                     <div>
-                        <label htmlFor="email">Email</label>
-                        <span className="red-text">{errors.email}</span>
-                        <input
-                            onChange={this.onChange}
-                            value={this.state.email}
-                            error={errors.email}
-                            id="email"
-                            type="email"
-                            className={classnames("", {
-                                invalid: errors.email,
-                            })}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password</label>
-                        <span className="red-text">{errors.password}</span>
-                        <input
-                            onChange={this.onChange}
-                            value={this.state.password}
-                            error={errors.password}
-                            id="password"
-                            type="password"
-                            className={classnames("", {
-                                invalid: errors.password,
-                            })}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="password2">Confirm Password</label>
-                        <span className="red-text">{errors.password2}</span>
-                        <input
-                            onChange={this.onChange}
-                            value={this.state.password2}
-                            error={errors.password2}
-                            id="password2"
-                            type="password"
-                            className={classnames("", {
-                                invalid: errors.password2,
-                            })}
-                        />
-                    </div>
-                    <div>
-                        <button type="submit">
+                        <button type="submit" className="btn btn-dark login-button">
                             Sign up
-                  </button>
+              </button>
                     </div>
                 </form>
                 <p>

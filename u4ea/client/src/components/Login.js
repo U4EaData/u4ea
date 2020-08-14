@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../redux/actions/authActions";
 import classnames from "classnames";
-
-import Header from "./Header.js"
+import "../css/style.css"
 
 
 class Login extends Component {
@@ -53,54 +52,62 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div>
-          <Header />
-          <form noValidate onSubmit={this.onSubmit}>
-            <div>
-              <label htmlFor="email">Email Address</label>
+      <div className="center">
+        <div className="login-message fade-in">
+          Login to U4Ea account
+        </div>
+        <form noValidate onSubmit={this.onSubmit}>
+          <div className="text-input">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text" id="basic-addon1">@</span>
+              </div>
               <span className="red-text">
-                {errors.email}
-                {errors.emailnotfound}
-              </span>
-              <br />
-              <input
-                onChange={this.onChange}
-                value={this.state.email}
-                error={errors.email}
-                id="email"
-                type="email"
-                className={classnames("", {
-                  invalid: errors.email || errors.emailnotfound,
-                })}
-              />
+              {errors.email}
+              {errors.emailnotfound}
+            </span>
+              <input 
+              type="text" 
+              onChange={this.onChange}
+              value={this.state.email}
+              error={errors.email}
+              id="email"
+              placeholder="email" 
+              className={classnames("form-control", {
+                invalid: errors.email || errors.emailnotfound,
+              })}
+              aria-label="email" 
+              aria-describedby="basic-addon1" />
             </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <span className="red-text">
-                {errors.password}
-                {errors.passwordincorrect}
-              </span>
-              <br />
-              <input
-                onChange={this.onChange}
-                value={this.state.password}
-                error={errors.password}
-                id="password"
-                type="password"
-                className={classnames("", {
-                  invalid: errors.password || errors.passwordincorrect,
-                })}
-              />
-            </div>
-            <div>
-              <button type="submit" className="modal-button">
-                Log In
+          </div>
+          <div>
+            <span className="red-text">
+              {errors.password}
+              {errors.passwordincorrect}
+            </span>
+            <br />
+            <input 
+              type="text" 
+              onChange={this.onChange}
+              value={this.state.password}
+              error={errors.password}
+              id="password"
+              placeholder="password" 
+              className={classnames("form-control", {
+                invalid: errors.password || errors.passwordincorrect,
+              })}
+              aria-label="password" 
+              aria-describedby="basic-addon1" />
+          </div>
+          <div>
+            <button type="submit" className="btn btn-dark login-button">
+              Log In
               </button>
-            </div>
-            <p>
-              Don't have an account? <Link to="/register">Sign up</Link>
-            </p>
-          </form>
+          </div>
+          <p>
+            Don't have an account? <Link to="/register">Sign up</Link>
+          </p>
+        </form>
 
       </div>
     );

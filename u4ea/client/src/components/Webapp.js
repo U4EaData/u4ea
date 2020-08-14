@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Joyride from "react-joyride";
 
 import Header from "./Header.js"
 
@@ -7,6 +8,7 @@ import data from '../data.json';
 import { Modal } from 'react-bootstrap';
 
 import { BinauralBeat } from '../js/beats'
+
 
 /* 
     Front end interface for the simple webapp. Uses functions from beats.js n the js folder for 
@@ -17,6 +19,7 @@ import { BinauralBeat } from '../js/beats'
 var context = new AudioContext()
 var bBeat = new BinauralBeat(context);
 var volume = context.createGain();
+
 
 
 class Webapp extends Component {
@@ -38,6 +41,29 @@ class Webapp extends Component {
             isfeelingOpen: false,
             isBoostOpen: false,
             isActivityOpen: false,
+            steps: [
+                {
+                    target: '.selectFeeling',
+                    content: <h2>Click to choose how you want feel!</h2>,
+                    placement: 'right'
+                },
+                {
+                    target: '.selectBoost',
+                    content: <h2>Click to choose how you want to be boosted!</h2>,
+                    placement: 'right'
+                },
+                {
+                    target: '.selectActivity',
+                    content: <h2>Click to choose your activity!</h2>,
+                    placement: 'right'
+                },
+                {
+                    target: '.glyphicon-play-circle',
+                    content: <h2>After choosing all three, enjoy the binaural beat!</h2>,
+                    placement: 'top'
+                },
+          ]
+    
         }
     }
 
@@ -48,8 +74,9 @@ class Webapp extends Component {
             boosts: data.boosts,
             activities: data.activities,
         })
-
     }
+
+
 
     /* Change feeling state on Click */
     setFeeling(name, f) {
@@ -213,7 +240,7 @@ class Webapp extends Component {
 
         /* Render activities from data.json */
         const activity = this.state.activities.map((item, key) =>
-        /* Render buttons */
+            /* Render buttons */
             <button key={item.name} value={item.name} className={'btn btn-success activity'} onClick={e => this.setActivity(e.target.value, item.frequencies)}>
                 {item.name}
             </button>
@@ -236,14 +263,14 @@ class Webapp extends Component {
             player = <button className="btn btn-default btn-circle glyphicon glyphicon-play-circle" disabled></button>
         }
 
+
         return (
             <div>
-                {console.log(this.state)}
-                {console.log(this.state.frequency)}
-                {console.log(this.state.frequencies[this.state.id])}
-
                 <Header />
                 <div>
+                <Joyride
+                    steps={this.state.steps}
+                />
                     <div className="div1">
                         <div className="text">
                             I WANT TO FEEL
@@ -253,7 +280,7 @@ class Webapp extends Component {
                                     {this.state.feeling ? <button type="button" className="btn btn-light" onClick={this.feelingOpen}>
                                         {this.state.feeling}
                                     </button> :
-                                        <button type="button" className="btn btn-light" onClick={this.feelingOpen}>
+                                        <button type="button" className="btn btn-light selectFeeling" onClick={this.feelingOpen}>
                                             Select Mood
                                       </button>
                                     }
@@ -277,11 +304,6 @@ class Webapp extends Component {
 
                             </Modal.Footer>
                         </Modal>
-                        <div className="waveWrapper waveAnimation">
-                            <div className="waveWrapperInner bgMiddle">
-                                <div className="wave waveMiddle" style={{ backgroundImage: "url(" + 'http://front-end-noobs.com/jecko/img/wave-mid.png' + ")" }}></div>
-                            </div>
-                        </div>
                     </div>
                     <div className="div2">
                         <div className="text">
@@ -292,7 +314,7 @@ class Webapp extends Component {
                                     {this.state.boost ? <button type="button" className="btn btn-light" onClick={this.boostOpen}>
                                         {this.state.boost}
                                     </button> :
-                                        <button className="btn btn-light" onClick={this.boostOpen}>
+                                        <button className="btn btn-light selectBoost" onClick={this.boostOpen}>
                                             Select Mood
                                       </button>
                                     }
@@ -326,7 +348,7 @@ class Webapp extends Component {
                                     {this.state.activity ? <button type="button" className="btn btn-light" onClick={this.activityOpen}>
                                         {this.state.activity}
                                     </button> :
-                                        <button className="btn btn-light" onClick={this.activityOpen}>
+                                        <button className="btn btn-light selectActivity" onClick={this.activityOpen}>
                                             Select Mood
                                       </button>
                                     }
