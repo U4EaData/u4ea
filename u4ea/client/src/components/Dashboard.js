@@ -110,8 +110,6 @@ class Dashboard extends Component {
                     {player}
                 </div>
             </div>
-
-
         )
     }
 }
