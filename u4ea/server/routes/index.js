@@ -11,6 +11,7 @@ const config = {
     },
     server: "mysqlserver-3.database.windows.net", // update me
     options: {
+      rowCollectionOnDone: true,
       database: "Users", //update me
       encrypt: true
     }
@@ -23,7 +24,7 @@ connection.on("connect", err => {
   if (err) {
     console.error(err.message);
   } else {
-    queryDatabase();
+    console.log(doesUserExist("andrewboden"));
   }
 });
 
@@ -32,10 +33,7 @@ function queryDatabase() {
 
   // Read all rows from table
   const request = new Request(
-    `SELECT TOP 20 pc.Name as CategoryName,
-                   p.name as ProductName
-     FROM [SalesLT].[ProductCategory] pc
-     JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid`,
+    `SELECT * FROM login;`,
     (err, rowCount) => {
       if (err) {
         console.error(err.message);
@@ -52,4 +50,26 @@ function queryDatabase() {
   });
 
   connection.execSql(request);
+}
+
+function doesUserExist(userName) {
+  const request = new Request(
+    'SELECT * FROM login WHERE LoginName = \'' + userName + '\';',
+    (err, rowCount, rows) => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log(rowCount > 0);
+      }
+    }
+  );
+
+  request.on('doneInProc', "row", columns => {
+    columns.forEach(column => {
+      console.log("%s\t%s", column.metadata.colName, column.value);
+    });
+  });
+
+  connection.execSql(request);
+  console.log("after:" );
 }
