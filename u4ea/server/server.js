@@ -4,6 +4,7 @@ var JwtStrategy = require("passport-jwt").Strategy,
   ExtractJwt = require("passport-jwt").ExtractJwt;
 const app = express();
 const router = express.Router();
+const bodyParser = require("body-parser");
 const opts = {};
 const passport = require("passport");
 const { Connection, Request } = require("tedious");
@@ -42,13 +43,11 @@ opts.secretOrKey = true;
 passport.use(
   new JwtStrategy(opts, (jwt_payload, done) => {
     const request = new Request(
-      'SELECT * FROM login WHERE LoginName = \'' + userName + '\';',
-      (err, rowCount, rows) => {
+      'SELECT * FROM login WHERE LoginName = \'' + jwt_payload.id + '\';',
+      function(err, rowCount, rows) {
         if (err) {
           console.error(err.message);
-        } else {
-          console.log(rowCount > 0);
-        }
+        } 
       }
     );
     request.on('row', function(columns) {
@@ -66,5 +65,5 @@ passport.use(
 app.use("/api/users/", users);
 
 // Listen
-const port = 3306 || process.env.PORT;
+const port = 5000 || process.env.PORT;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
