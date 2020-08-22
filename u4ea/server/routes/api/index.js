@@ -3,21 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { Connection, Request } = require("tedious");
+const config = require("./config/config")
 
-const config = {
-    authentication: {
-      options: {
-        userName: "azureuser", // update me
-        password: "Azure123!" // update me
-      },
-      type: "default"
-    },
-    server: "mysqlserver-3.database.windows.net", // update me
-    options: {
-      database: "Users", //update me
-      encrypt: true
-    }
-}
 
 const connection = new Connection(config);
 

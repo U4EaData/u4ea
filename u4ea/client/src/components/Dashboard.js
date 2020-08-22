@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/gamify.css"
+import "../css/gamify.css";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../redux/actions/authActions";
 
 class Dashboard extends Component {
 
@@ -114,4 +117,11 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+Dashboard.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth,
+  });
+  export default connect(mapStateToProps, { logoutUser })(Dashboard);

@@ -6,22 +6,7 @@ var saltRounds = 5;
 const { Connection, Request } = require("tedious");
 const validateRegisterInput = require("../../utils/registerValidator");
 const validateLoginInput = require("../../utils/loginValidator");
-
-
-const config = {
-  authentication: {
-    options: {
-      userName: "azureuser", // update me
-      password: "Azure123!" // update me
-    },
-    type: "default"
-  },
-  server: "mysqlserver-3.database.windows.net", // update me
-  options: {
-    database: "Users", //update me
-    encrypt: true
-  }
-}
+const config = require("./config/config")
 
 // @route POST api/users/register
 // @desc Register user
@@ -35,10 +20,10 @@ router.post("/register", (req, res) => {
   const connection = new Connection(config);
 
   connection.on('connect', function (err) {
-    
+
     // Read all rows from table
     const request = new Request(
-      'SELECT * FROM login WHERE LoginName = \'' + req.body.email + '\';',     
+      'SELECT * FROM login WHERE LoginName = \'' + req.body.email + '\';',
       (err, rowCount, rows) => {
         if (err) {
           console.error(err.message);
@@ -82,46 +67,57 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  const checkUserRequest = new Request(
-    'SELECT * FROM login WHERE LoginName = \'' + email + '\';',
-    function (err, rowCount, rows) {
-      if (err) {
-        console.error(err.message);
-      } else if (!rows) {
-        return res.status(404).json({ emailnotfound: "Email not found" });
-      } else {
-        bcrypt.compare(password, rows.password).then(isMatch => {
-          if (isMatch) {
-            const payload = {
-              id: rows.id,
-              name: rows.name,
-              email: rows.email,
-            };
-            // TODO: Check this middleware
-            // Signin token
-            jwt.sign(
-              payload,
-              "secret",
-              {
-                expiresIn: 31556926, // 1 year in seconds
-              },
-              (err, token) => {
-                res.json({
-                  success: true,
-                  token: "Bearer " + token,
-                });
-              }
-            );
-          } else {
-            return res
-              .status(400)
-              .json({ passwordincorrect: "Password incorrect" });
-          }
-        });
+  const connection = new Connection(config);
+
+  connection.on('connect', function (err) {
+    const checkUserRequest = new Request(
+      'SELECT * FROM login WHERE LoginName = \'' + email + '\';',
+      function (err, rowCount, rows) {
+        if (err) {
+          console.error(err.message);
+        } else if (!rows) {
+          return res.status(404).json({ emailnotfound: "Email not found" });
+        } else {
+          bcrypt.compare(password, rows.password).then(isMatch => {
+            if (isMatch) {
+              const payload = {
+                id: rows.id,
+                name: rows.name,
+                email: rows.email,
+              };
+              // TODO: Check this middleware
+              // Signin token
+              jwt.sign(
+                payload,
+                "secret",
+                {
+                  expiresIn: 31556926, // 1 year in seconds
+                },
+                (err, token) => {
+
+                  res.json({
+                    success: true,
+                    token: "Bearer " + token,
+
+                  })
+                }
+              );
+            } else {
+              return res
+                .status(400)
+                .json({ passwordincorrect: "Password incorrect" });
+            }
+          })
+            .catch(err => {
+              res.status(500).send('Internal server error');
+
+            });
+        }
       }
-    }
-  );
-  connection.execSql(checkUserRequest);
+    );
+    connection.execSql(checkUserRequest);
+
+  })
 });
 
 
