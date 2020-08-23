@@ -1,0 +1,24 @@
+# TODO list for U4Ea Webapp
+
+## Restructure tables 
+
+-Resturcture database tables to in order to create features for the gamification Webapp
+
+## login
+
+-Create a forgot password feature
+-Black out password input
+
+## simple Webapp
+
+-redesign if needed
+
+## landing page
+
+-redesign if needed
+
+## gamified Webapp
+
+-implement the features in the gamification development docs
+
+
