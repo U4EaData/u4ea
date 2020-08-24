@@ -24,7 +24,7 @@ connection.on("connect", err => {
   if (err) {
     console.error(err.message);
   } else {
-    console.log(doesUserExist("andrewboden"));
+    registerUser("newUser2", "password");
   }
 });
 
@@ -64,7 +64,7 @@ function doesUserExist(userName) {
     }
   );
 
-  request.on('doneInProc', "row", columns => {
+  request.on("row", columns => {
     columns.forEach(column => {
       console.log("%s\t%s", column.metadata.colName, column.value);
     });
@@ -72,4 +72,23 @@ function doesUserExist(userName) {
 
   connection.execSql(request);
   console.log("after:" );
+}
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+function registerUser(userName, unhashedPassword) {
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(unhashedPassword, salt, function(err, hash) {
+      const request = new Request(
+        'INSERT INTO login VALUES (\'' + userName + '\', CAST( \'' + hash + '\' AS BINARY(60) ));',
+        (err, rowCount, rows) => {
+          if (err) {
+            console.error(err.message);
+          }
+        }
+      );
+      connection.execSql(request);
+    });
+  });
 }
